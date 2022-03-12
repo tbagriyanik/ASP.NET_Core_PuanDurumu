@@ -1,0 +1,73 @@
+﻿@model IEnumerable<FutbolLigi.Models.PuanTablosu>
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <h1>Futbol Ligi - Puan Tablosu</h1>
+
+    <p>
+        <a asp-action="Create">Yeni Takım</a>
+    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TakimAdi)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.ToplamMacSayisi)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.Galibiyet)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.Beraberlik)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.Maglubiyet)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.AtilanGol)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.YenilenGol)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.Averaj)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.Puan)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+        <tr>
+            <td nowrap>@Html.DisplayFor(modelItem => item.TakimAdi)
+            </td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.ToplamMacSayisi)
+            </td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.Galibiyet)
+            </td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.Beraberlik)
+            </td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.Maglubiyet)
+            </td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.AtilanGol)
+            </td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.YenilenGol)
+            </td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.Averaj)
+            </td>
+            <td class="text-center">@Html.DisplayFor(modelItem => item.Puan)
+            </td>
+            <td nowrap>
+                <a asp-action="Edit" asp-route-id="@item.ID">Güncelle</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Detay</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Sil</a>
+            </td>
+        </tr>
+            }
+        </tbody>
+    </table>
+    <style>
+        .table-striped tbody tr:first-child td {
+            background-color: #afa;
+        }
+
+        .table-striped tbody tr:last-child td {
+            background-color: #Faa;
+        }
+    </style>
